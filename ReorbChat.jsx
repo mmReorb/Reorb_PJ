@@ -5,7 +5,7 @@ function Card({ children }) {
 }
 
 function CardContent({ children, className = '' }) {
-  return <div className={`p-2 ${className}`}>{children}</div>;
+  return <div className={\`p-2 \${className}\`}>{children}</div>;
 }
 
 export default function ReorbChat() {
@@ -36,11 +36,8 @@ export default function ReorbChat() {
   };
 
   const handleToggle = (side) => {
-    if (side === 'left') {
-      setShowLeft((prev) => !prev);
-    } else if (side === 'right') {
-      setShowRight((prev) => !prev);
-    }
+    if (side === 'left') setShowLeft(prev => !prev);
+    if (side === 'right') setShowRight(prev => !prev);
   };
 
   const handleDragStart = (e, side) => {
@@ -82,14 +79,12 @@ export default function ReorbChat() {
           <span className="text-gray-300 text-xl">3Dオーブエリア（動的拡縮）</span>
         </section>
 
-        <section className={`absolute left-0 top-16 bottom-4 z-30 flex flex-col items-start transition-all duration-300 ${showLeft ? 'w-[440px]' : 'w-[16px]'}`}>
-          <div className="absolute top-0 left-0 right-0 bottom-0 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.12)] rounded-[8px]">
-            <div
-              className="absolute top-0 bottom-0 right-[-4px] w-6 z-40 cursor-ew-resize"
+        <section className={\`absolute left-0 top-16 bottom-4 z-30 flex flex-col items-start transition-all duration-300 \${showLeft ? 'w-[440px]' : 'w-[16px]'}\`}>
+          <div className="absolute top-0 left-0 right-0 bottom-0 bg-white shadow-md rounded-[8px]">
+            <div className="absolute top-0 bottom-0 right-[-4px] w-6 z-40 cursor-ew-resize"
               ref={leftDragRef}
               onMouseDown={(e) => handleDragStart(e, 'left')}
-              onClick={() => handleToggle('left')}
-            >
+              onClick={() => handleToggle('left')}>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-20 bg-[#00A3FF] rounded-[16px]" />
             </div>
             {showLeft && (
@@ -97,15 +92,17 @@ export default function ReorbChat() {
                 <div className="space-y-2">
                   {messages.map((m, i) => (
                     <div key={i} className={m.role === 'user' ? 'text-right' : 'text-left'}>
-                      <span className={`block p-2 rounded whitespace-pre-wrap ${m.role === 'user' ? 'bg-[#D2F0FF]' : 'bg-gray-100'}`}>{m.content}</span>
+                      <span className={\`block p-2 rounded whitespace-pre-wrap \${m.role === 'user' ? 'bg-[#D2F0FF]' : 'bg-gray-100'}\`}>
+                        {m.content}
+                      </span>
                     </div>
                   ))}
                 </div>
                 <div className="mt-2">
                   <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-full h-12">
                     <textarea
-                      placeholder={`どんなことでも構いません。
-違和感、もやもや、気づいたことをReorbにどうぞ`}
+                      placeholder="どんなことでも構いません。
+違和感、もやもや、気づいたことをReorbにどうぞ"
                       value={input}
                       onChange={e => setInput(e.target.value)}
                       disabled={loading}
@@ -121,14 +118,12 @@ export default function ReorbChat() {
           </div>
         </section>
 
-        <section className={`absolute right-0 top-16 bottom-4 z-30 flex flex-col items-end transition-all duration-300 ${showRight ? 'w-[360px]' : 'w-[16px]'}`}>
-          <div className="absolute top-0 left-0 right-0 bottom-0 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.12)] rounded-[8px]">
-            <div
-              className="absolute top-0 bottom-0 left-[-4px] w-6 z-40 cursor-ew-resize"
+        <section className={\`absolute right-0 top-16 bottom-4 z-30 flex flex-col items-end transition-all duration-300 \${showRight ? 'w-[360px]' : 'w-[16px]'}\`}>
+          <div className="absolute top-0 left-0 right-0 bottom-0 bg-white shadow-md rounded-[8px]">
+            <div className="absolute top-0 bottom-0 left-[-4px] w-6 z-40 cursor-ew-resize"
               ref={rightDragRef}
               onMouseDown={(e) => handleDragStart(e, 'right')}
-              onClick={() => handleToggle('right')}
-            >
+              onClick={() => handleToggle('right')}>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-20 bg-[#00A3FF] rounded-[16px]" />
             </div>
             {showRight && (
@@ -137,7 +132,7 @@ export default function ReorbChat() {
                 {[...Array(6)].map((_, i) => (
                   <Card key={i}>
                     <CardContent className="p-2">
-                      <div className="text-xs text-gray-400 mb-1">UX改善　TO DO　2025/04/22</div>
+                      <div className="text-xs text-gray-400 mb-1">UX改善 TO DO 2025/04/22</div>
                       <div className="text-sm">操作導線のレビューを事前に実施</div>
                     </CardContent>
                   </Card>

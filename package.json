@@ -1,5 +1,5 @@
 {
-  "name": "reorb-live",
+  "name": "reorb-react-vercel",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
