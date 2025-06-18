@@ -5,7 +5,7 @@ function Card({ children }) {
 }
 
 function CardContent({ children, className = '' }) {
-  return <div className={\`p-2 \${className}\`}>{children}</div>;
+  return <div className={`p-2 ${className}`}>{children}</div>;
 }
 
 export default function ReorbChat() {
@@ -79,7 +79,7 @@ export default function ReorbChat() {
           <span className="text-gray-300 text-xl">3Dオーブエリア（動的拡縮）</span>
         </section>
 
-        <section className={\`absolute left-0 top-16 bottom-4 z-30 flex flex-col items-start transition-all duration-300 \${showLeft ? 'w-[440px]' : 'w-[16px]'}\`}>
+        <section className={`absolute left-0 top-16 bottom-4 z-30 flex flex-col items-start transition-all duration-300 ${showLeft ? 'w-[440px]' : 'w-[16px]'}`}>
           <div className="absolute top-0 left-0 right-0 bottom-0 bg-white shadow-md rounded-[8px]">
             <div className="absolute top-0 bottom-0 right-[-4px] w-6 z-40 cursor-ew-resize"
               ref={leftDragRef}
@@ -92,7 +92,7 @@ export default function ReorbChat() {
                 <div className="space-y-2">
                   {messages.map((m, i) => (
                     <div key={i} className={m.role === 'user' ? 'text-right' : 'text-left'}>
-                      <span className={\`block p-2 rounded whitespace-pre-wrap \${m.role === 'user' ? 'bg-[#D2F0FF]' : 'bg-gray-100'}\`}>
+                      <span className={`block p-2 rounded whitespace-pre-wrap ${m.role === 'user' ? 'bg-[#D2F0FF]' : 'bg-gray-100'}`}>
                         {m.content}
                       </span>
                     </div>
@@ -118,7 +118,7 @@ export default function ReorbChat() {
           </div>
         </section>
 
-        <section className={\`absolute right-0 top-16 bottom-4 z-30 flex flex-col items-end transition-all duration-300 \${showRight ? 'w-[360px]' : 'w-[16px]'}\`}>
+        <section className={`absolute right-0 top-16 bottom-4 z-30 flex flex-col items-end transition-all duration-300 ${showRight ? 'w-[360px]' : 'w-[16px]'}`}>
           <div className="absolute top-0 left-0 right-0 bottom-0 bg-white shadow-md rounded-[8px]">
             <div className="absolute top-0 bottom-0 left-[-4px] w-6 z-40 cursor-ew-resize"
               ref={rightDragRef}
