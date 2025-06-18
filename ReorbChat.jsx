@@ -1,4 +1,3 @@
-// ReorbChat.jsx
 import { useState, useRef } from 'react';
 
 function Card({ children }) {
@@ -67,7 +66,6 @@ export default function ReorbChat() {
 
   return (
     <div className="w-[1440px] h-[1024px] mx-auto flex flex-col relative">
-      {/* ヘッダー */}
       <header className="h-16 px-6 flex items-center justify-between border-b text-lg font-bold z-30 relative">
         <span>Reorb</span>
         <nav className="flex gap-6 text-sm">
@@ -80,12 +78,10 @@ export default function ReorbChat() {
       </header>
 
       <main className="flex flex-1 overflow-visible relative z-10">
-        {/* 3Dオーブエリア背景 */}
         <section className="absolute top-0 bottom-0 left-0 right-0 z-0 bg-white flex items-center justify-center">
           <span className="text-gray-300 text-xl">3Dオーブエリア（動的拡縮）</span>
         </section>
 
-        {/* チャットエリア（観音扉左） */}
         <section className={`absolute left-0 top-16 bottom-4 z-30 flex flex-col items-start transition-all duration-300 ${showLeft ? 'w-[440px]' : 'w-[16px]'}`}>
           <div className="absolute top-0 left-0 right-0 bottom-0 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.12)] rounded-[8px]">
             <div
@@ -108,7 +104,8 @@ export default function ReorbChat() {
                 <div className="mt-2">
                   <div className="flex items-center border border-gray-300 rounded px-2 py-1 w-full h-12">
                     <textarea
-                      placeholder={`どんなことでも構いません。\n違和感、もやもや、気づいたことをReorbにどうぞ`}
+                      placeholder={`どんなことでも構いません。
+違和感、もやもや、気づいたことをReorbにどうぞ`}
                       value={input}
                       onChange={e => setInput(e.target.value)}
                       disabled={loading}
@@ -124,7 +121,6 @@ export default function ReorbChat() {
           </div>
         </section>
 
-        {/* タスクエリア（観音扉右） */}
         <section className={`absolute right-0 top-16 bottom-4 z-30 flex flex-col items-end transition-all duration-300 ${showRight ? 'w-[360px]' : 'w-[16px]'}`}>
           <div className="absolute top-0 left-0 right-0 bottom-0 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.12)] rounded-[8px]">
             <div
