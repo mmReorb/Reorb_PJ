@@ -1,6 +1,13 @@
 // ReorbChat.jsx
 import { useState, useRef } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
+
+function Card({ children }) {
+  return <div className="border rounded p-2 shadow-sm bg-white">{children}</div>;
+}
+
+function CardContent({ children, className = '' }) {
+  return <div className={`p-2 ${className}`}>{children}</div>;
+}
 
 export default function ReorbChat() {
   const [messages, setMessages] = useState([]);
